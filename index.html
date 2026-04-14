@@ -11,18 +11,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a2e44;
-      --navy-dark: #0f1e2e;
-      --teal: #3a8fa3;
+      --navy: #1e3448;
+      --navy-dark: #162840;
+      --teal: #3a8ea3;
       --teal-light: #5ab0c4;
-      --teal-pale: #e8f4f7;
-      --cream: #faf8f4;
+      --teal-pale: #dbeef4;
+      --site-blue: #ccd9de;
+      --site-blue-light: #dce8ec;
+      --site-blue-mid: #c4d4da;
+      --cream: #f5f9fa;
       --warm-white: #ffffff;
-      --sand: #f2ede6;
-      --text-dark: #1a2236;
-      --text-mid: #4a5568;
-      --text-light: #718096;
-      --border: rgba(58,143,163,0.15);
+      --text-dark: #1e3448;
+      --text-mid: #4a6070;
+      --text-light: #7a94a0;
+      --border: rgba(58,143,163,0.18);
     }
 
     html { scroll-behavior: smooth; }
@@ -162,8 +164,8 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--navy-dark);
-      min-height: 85vh;
+      background: var(--site-blue);
+      min-height: 82vh;
       display: flex;
       align-items: center;
       position: relative;
@@ -173,9 +175,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(105deg, rgba(15,30,46,0.92) 45%, rgba(15,30,46,0.55) 100%),
-        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600&q=80') center/cover no-repeat;
+      background: linear-gradient(110deg, var(--site-blue) 40%, #b8cdd5 100%);
       z-index: 0;
     }
 
@@ -204,29 +204,30 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--teal-light);
-      border: 1px solid rgba(90,176,196,0.35);
+      color: var(--teal);
+      border: 1px solid rgba(58,142,163,0.35);
       padding: 4px 12px;
       border-radius: 20px;
+      background: rgba(255,255,255,0.5);
     }
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(38px, 5vw, 64px);
       font-weight: 400;
-      color: var(--warm-white);
+      color: var(--navy);
       line-height: 1.15;
       margin-bottom: 20px;
     }
 
     .hero h1 em {
       font-style: italic;
-      color: var(--teal-light);
+      color: var(--teal);
     }
 
     .hero-sub {
       font-size: 16px;
-      color: rgba(255,255,255,0.6);
+      color: var(--text-mid);
       line-height: 1.75;
       max-width: 480px;
       margin-bottom: 36px;
@@ -256,25 +257,26 @@
 
     .btn-outline-white {
       display: inline-block;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(30,52,72,0.3);
+      color: var(--navy);
       padding: 13px 28px;
       font-size: 13px;
       font-weight: 500;
       text-decoration: none;
       border-radius: 3px;
-      transition: border-color 0.2s, color 0.2s;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
     }
 
-    .btn-outline-white:hover { border-color: var(--teal-light); color: var(--teal-light); }
+    .btn-outline-white:hover { border-color: var(--teal); color: var(--teal); background: rgba(255,255,255,0.4); }
 
     /* Hero book card */
     .hero-book-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.8);
       border-radius: 8px;
       padding: 32px;
       backdrop-filter: blur(4px);
+      box-shadow: 0 4px 24px rgba(30,52,72,0.08);
     }
 
     .hero-book-label {
@@ -340,14 +342,14 @@
       font-family: 'Playfair Display', serif;
       font-size: 20px;
       font-weight: 500;
-      color: var(--warm-white);
+      color: var(--navy);
       margin-bottom: 8px;
       line-height: 1.3;
     }
 
     .hero-book-desc {
       font-size: 13px;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-mid);
       line-height: 1.65;
       margin-bottom: 20px;
     }
@@ -371,9 +373,11 @@
 
     /* ── PULL QUOTE ── */
     .pull-quote-section {
-      background: var(--teal-pale);
+      background: var(--warm-white);
       padding: 64px 24px;
       text-align: center;
+      border-top: 1px solid rgba(30,52,72,0.06);
+      border-bottom: 1px solid rgba(30,52,72,0.06);
     }
 
     .pull-quote-section blockquote {
@@ -399,7 +403,7 @@
     /* ── ABOUT ── */
     .about-section {
       padding: 100px 24px;
-      background: var(--warm-white);
+      background: var(--site-blue-light);
     }
 
     .about-inner {
@@ -417,31 +421,46 @@
 
     .about-image {
       width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(160deg, #d4edf4 0%, #a8d8e8 50%, #7ec4d8 100%);
+      min-height: 420px;
+      background: linear-gradient(160deg, #b8d4dc 0%, #8abecf 50%, #6aaec3 100%);
       border-radius: 4px;
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: 12px;
+      padding: 40px;
+      text-align: center;
     }
 
     .about-image-initials {
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: 'Playfair Display', serif;
-      font-size: 96px;
-      font-weight: 400;
-      color: rgba(26,46,68,0.18);
-      line-height: 1;
+      font-size: 40px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      border: 2px solid rgba(255,255,255,0.35);
+      margin-bottom: 4px;
     }
 
     .about-image-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(26,46,68,0.35);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .about-image-sublabel {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      font-style: italic;
     }
 
     .about-image-accent {
@@ -522,7 +541,7 @@
     /* ── BOOKS ── */
     .books-section {
       padding: 100px 24px;
-      background: var(--cream);
+      background: var(--warm-white);
     }
 
     .books-inner {
@@ -765,7 +784,7 @@
     /* ── TESTIMONIALS ── */
     .testimonials-section {
       padding: 100px 24px;
-      background: var(--navy);
+      background: var(--site-blue);
       position: relative;
       overflow: hidden;
     }
@@ -778,7 +797,7 @@
       transform: translateX(-50%);
       font-family: 'Playfair Display', serif;
       font-size: 320px;
-      color: rgba(255,255,255,0.02);
+      color: rgba(30,52,72,0.04);
       line-height: 1;
       pointer-events: none;
     }
@@ -800,11 +819,12 @@
     }
 
     .testimonial-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.9);
       border-radius: 6px;
       padding: 36px;
       position: relative;
+      box-shadow: 0 2px 16px rgba(30,52,72,0.07);
     }
 
     .testimonial-card::before {
@@ -812,7 +832,7 @@
       font-family: 'Playfair Display', serif;
       font-size: 64px;
       color: var(--teal);
-      opacity: 0.4;
+      opacity: 0.5;
       line-height: 0.8;
       display: block;
       margin-bottom: 16px;
@@ -820,7 +840,7 @@
 
     .testimonial-text {
       font-size: 14px;
-      color: rgba(255,255,255,0.7);
+      color: var(--text-mid);
       line-height: 1.8;
       margin-bottom: 24px;
       font-style: italic;
@@ -831,14 +851,16 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--teal-light);
+      color: var(--teal);
     }
 
     /* ── MEDIA ── */
     .media-section {
       padding: 64px 24px;
-      background: var(--sand);
+      background: var(--warm-white);
       text-align: center;
+      border-top: 1px solid rgba(30,52,72,0.07);
+      border-bottom: 1px solid rgba(30,52,72,0.07);
     }
 
     .media-label {
@@ -875,7 +897,7 @@
     /* ── SPEAKING ── */
     .speaking-section {
       padding: 100px 24px;
-      background: var(--warm-white);
+      background: var(--site-blue-light);
     }
 
     .speaking-inner {
@@ -930,9 +952,10 @@
     }
 
     .speaking-right {
-      background: var(--teal-pale);
+      background: var(--warm-white);
       border-radius: 8px;
       padding: 48px;
+      box-shadow: 0 4px 24px rgba(30,52,72,0.08);
     }
 
     .speaking-right h3 {
@@ -954,7 +977,7 @@
     /* ── CONTACT ── */
     .contact-section {
       padding: 100px 24px;
-      background: var(--cream);
+      background: var(--site-blue);
     }
 
     .contact-inner {
@@ -1172,7 +1195,7 @@
 
   <!-- OUTREACH BANNER -->
   <div class="outreach-banner">
-    <span>Hi Steve — I'm a fan of your work and put together this free concept redesign for you.</span>
+    <span>Hi Steve — I'm a fan and put together this free concept redesign for you.</span>
     <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
   </div>
 
@@ -1255,6 +1278,7 @@
         <div class="about-image">
           <div class="about-image-initials">SL</div>
           <div class="about-image-label">Rabbi Steve Leder</div>
+          <div class="about-image-sublabel">Senior Rabbi · Wilshire Boulevard Temple</div>
         </div>
         <div class="about-image-accent"></div>
       </div>
@@ -1355,11 +1379,11 @@
     <div class="testimonials-inner">
       <div class="testimonials-header">
         <div class="section-eyebrow" style="justify-content:center">
-          <div class="section-eyebrow-line" style="background:rgba(255,255,255,0.3)"></div>
-          <span class="section-eyebrow-text" style="color:rgba(255,255,255,0.5)">What People Are Saying</span>
-          <div class="section-eyebrow-line" style="background:rgba(255,255,255,0.3)"></div>
+          <div class="section-eyebrow-line"></div>
+          <span class="section-eyebrow-text">What People Are Saying</span>
+          <div class="section-eyebrow-line"></div>
         </div>
-        <h2 class="section-title" style="color:#fff; text-align:center;">Words that stay<br>with you.</h2>
+        <h2 class="section-title" style="text-align:center;">Words that stay<br>with you.</h2>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card">
