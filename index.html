@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rabbi Steve Leder | Author · Rabbi · Speaker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2e44;
+      --navy-dark: #0f1e2e;
+      --teal: #3a8fa3;
+      --teal-light: #5ab0c4;
+      --teal-pale: #e8f4f7;
+      --cream: #faf8f4;
+      --warm-white: #ffffff;
+      --sand: #f2ede6;
+      --text-dark: #1a2236;
+      --text-mid: #4a5568;
+      --text-light: #718096;
+      --border: rgba(58,143,163,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--warm-white);
+      overflow-x: hidden;
+    }
+
+    /* ── BANNER ── */
+    .outreach-banner {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .outreach-banner a {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .outreach-banner a:hover { background: var(--teal-light); }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-logo span { color: var(--teal); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    .nav-links .nav-cta a {
+      background: var(--teal);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    .nav-links .nav-cta a:hover { background: var(--teal-light); color: #fff; }
+
+    .nav-social {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .nav-social a { color: var(--text-light); transition: color 0.2s; }
+    .nav-social a:hover { color: var(--teal); }
+    .nav-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy-dark);
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(105deg, rgba(15,30,46,0.92) 45%, rgba(15,30,46,0.55) 100%),
+        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600&q=80') center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-roles {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-role-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      border: 1px solid rgba(90,176,196,0.35);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--warm-white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal-light);
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 36px;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-teal {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 13px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-teal:hover { background: var(--teal-light); transform: translateY(-1px); }
+
+    .btn-outline-white {
+      display: inline-block;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      padding: 13px 28px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline-white:hover { border-color: var(--teal-light); color: var(--teal-light); }
+
+    /* Hero book card */
+    .hero-book-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 32px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-book-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 16px;
+    }
+
+    .hero-book-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #e8f4f7, #b8dde8);
+      border-radius: 4px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-book-cover-inner {
+      background: linear-gradient(160deg, #f0f8fb 0%, #c8e8f0 40%, #a0d4e0 100%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .hero-book-cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-book-cover-sub {
+      font-size: 11px;
+      color: var(--text-mid);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .hero-book-cover-author {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-top: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .hero-book-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .hero-book-cta {
+      display: block;
+      text-align: center;
+      background: var(--teal);
+      color: #fff;
+      padding: 12px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+
+    .hero-book-cta:hover { background: var(--teal-light); }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote-section {
+      background: var(--teal-pale);
+      padding: 64px 24px;
+      text-align: center;
+    }
+
+    .pull-quote-section blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--navy);
+      max-width: 780px;
+      margin: 0 auto 16px;
+      line-height: 1.4;
+    }
+
+    .pull-quote-section cite {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-style: normal;
+    }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 100px 24px;
+      background: var(--warm-white);
+    }
+
+    .about-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--teal-pale), #c8e8f2);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-image-accent {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 120px;
+      height: 120px;
+      background: var(--teal);
+      border-radius: 4px;
+      opacity: 0.12;
+      z-index: -1;
+    }
+
+    .about-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .about-eyebrow-line {
+      width: 32px;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    .about-eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 46px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about-body {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .about-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-mid);
+    }
+
+    .credential-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    /* ── BOOKS ── */
+    .books-section {
+      padding: 100px 24px;
+      background: var(--cream);
+    }
+
+    .books-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .section-eyebrow-line {
+      width: 24px;
+      height: 2px;
+      background: var(--teal);
+    }
+
+    .section-eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .books-featured {
+      background: var(--warm-white);
+      border-radius: 8px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+    }
+
+    .books-featured-cover {
+      background: linear-gradient(160deg, #e8f4f8 0%, #b8dce8 50%, #8cc8dc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 40px;
+      min-height: 360px;
+    }
+
+    .book-cover-mockup {
+      background: linear-gradient(150deg, #f5fbfd, #cdeaf4);
+      border-radius: 4px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 6px 6px 24px rgba(0,0,0,0.18), -2px -2px 0px rgba(255,255,255,0.8);
+      max-width: 200px;
+      width: 100%;
+    }
+
+    .book-cover-mockup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy-dark);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .book-cover-mockup-sub {
+      font-size: 10px;
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .book-cover-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--teal);
+      margin: 0 auto 10px;
+    }
+
+    .book-cover-mockup-author {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .books-featured-content {
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .books-featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .books-featured-subtitle {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    .books-featured-desc {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .featured-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-teal-outline {
+      display: inline-block;
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      padding: 11px 24px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-teal-outline:hover { background: var(--teal); color: #fff; }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .book-card {
+      background: var(--warm-white);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .book-card-cover {
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .book-card-cover-1 { background: linear-gradient(135deg, #dff0f5, #a8d8e8); }
+    .book-card-cover-2 { background: linear-gradient(135deg, #e8f5e8, #a8d4b0); }
+    .book-card-cover-3 { background: linear-gradient(135deg, #f5ede8, #ddb898); }
+    .book-card-cover-4 { background: linear-gradient(135deg, #ede8f5, #c0aee0); }
+
+    .book-card-body {
+      padding: 16px 18px 20px;
+    }
+
+    .book-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .book-card-sub {
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .book-card-link {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+
+    .book-card-link:hover { gap: 8px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section {
+      padding: 100px 24px;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-section::before {
+      content: '\201C';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-size: 320px;
+      color: rgba(255,255,255,0.02);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .testimonials-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 36px;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      color: var(--teal);
+      opacity: 0.4;
+      line-height: 0.8;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+    }
+
+    /* ── MEDIA ── */
+    .media-section {
+      padding: 64px 24px;
+      background: var(--sand);
+      text-align: center;
+    }
+
+    .media-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 32px;
+    }
+
+    .media-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .media-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(26,46,68,0.35);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .media-logo:hover { color: var(--navy); }
+
+    .media-logo-serif { font-style: italic; }
+    .media-logo-sans { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 0.1em; }
+
+    /* ── SPEAKING ── */
+    .speaking-section {
+      padding: 100px 24px;
+      background: var(--warm-white);
+    }
+
+    .speaking-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .speaking-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 46px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .speaking-left p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .speaking-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .speaking-topic {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-dark);
+    }
+
+    .speaking-topic-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .speaking-right {
+      background: var(--teal-pale);
+      border-radius: 8px;
+      padding: 48px;
+    }
+
+    .speaking-right h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .speaking-right p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 100px 24px;
+      background: var(--cream);
+    }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 3.5vw, 46px);
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .contact-inner > p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .contact-form {
+      background: var(--warm-white);
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.07);
+      text-align: left;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      border: 1px solid #dde3ea;
+      border-radius: 4px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text-dark);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      background: var(--warm-white);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--teal); }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+
+    .form-submit:hover { background: var(--teal-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      padding: 48px 24px 28px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--warm-white);
+    }
+
+    .footer-brand span { color: var(--teal-light); }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--teal-light); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social a {
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--teal-light); }
+    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .hero-book-card { display: none; }
+      .about-inner,
+      .speaking-inner { grid-template-columns: 1fr; gap: 48px; }
+      .books-featured { grid-template-columns: 1fr; }
+      .books-featured-cover { min-height: 260px; }
+      .books-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+      .media-logos { gap: 28px; }
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--warm-white);
+        border-top: 1px solid rgba(0,0,0,0.07);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; }
+      .nav-links .nav-cta a { border: none; background: none; color: var(--teal); padding: 12px 0; }
+      .nav-social { display: none; }
+
+      .books-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .featured-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- OUTREACH BANNER -->
+  <div class="outreach-banner">
+    <span>Hi Steve — I'm a fan of your work and put together this free concept redesign for you.</span>
+    <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="top">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Steve <span>Leder</span></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#press">Press</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="#books">Order Now</a></li>
+      </ul>
+      <div class="nav-social">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/rabbisteveleder/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <!-- Facebook -->
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <!-- Twitter -->
+        <a href="#" aria-label="Twitter">
+          <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-roles">
+          <span class="hero-role-tag">Author</span>
+          <span class="hero-role-tag">Rabbi</span>
+          <span class="hero-role-tag">Speaker</span>
+        </div>
+        <h1>Making meaning<br>out of the moments<br>that <em>matter most.</em></h1>
+        <p class="hero-sub">Senior Rabbi of Wilshire Boulevard Temple. Author of five books. Newsweek's most influential rabbis in America — twice. Here to help you live a fuller, more intentional life.</p>
+        <div class="hero-ctas">
+          <a href="#books" class="btn-teal">Explore the Books</a>
+          <a href="#speaking" class="btn-outline-white">Book Steve to Speak</a>
+        </div>
+      </div>
+
+      <div class="hero-book-card">
+        <div class="hero-book-label">✦ Newest Release</div>
+        <div class="hero-book-cover">
+          <div class="hero-book-cover-inner">
+            <div class="hero-book-cover-title">For You When I Am Gone</div>
+            <div class="hero-book-cover-sub">Twelve Essential Questions to Tell a Life Story</div>
+            <div class="hero-book-cover-author">Steve Leder</div>
+          </div>
+        </div>
+        <div class="hero-book-title">For You When I Am Gone</div>
+        <div class="hero-book-desc">12 essential questions — a roadmap for how we can lead a more meaningful life now, and leave a more powerful legacy later.</div>
+        <a href="https://www.amazon.com" target="_blank" class="hero-book-cta">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PULL QUOTE -->
+  <section class="pull-quote-section">
+    <blockquote>"Are we living our truth, or are we just talking about our truth?"</blockquote>
+    <cite>— Steve Leder</cite>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-image-wrap">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" alt="Rabbi Steve Leder" />
+        </div>
+        <div class="about-image-accent"></div>
+      </div>
+      <div>
+        <div class="about-eyebrow">
+          <div class="about-eyebrow-line"></div>
+          <span class="about-eyebrow-text">About Rabbi Steve Leder</span>
+        </div>
+        <h2 class="about-title">Guiding people through<br>life's hardest questions.</h2>
+        <p class="about-body">Steve Leder is the Senior Rabbi of Wilshire Boulevard Temple in Los Angeles — one of America's most historic and storied congregations. After graduating cum laude from Northwestern University and studying at Trinity College, Oxford, he received his master's and rabbinical ordination from Hebrew Union College.</p>
+        <p class="about-body">He is the author of five books, including the bestsellers <em>The Beauty of What Remains</em> and <em>More Beautiful Than Before</em>, and his latest, <em>For You When I Am Gone</em>. His writing has helped hundreds of thousands of readers find meaning in loss, suffering, and the everyday moments we too easily overlook.</p>
+        <p class="about-body">Newsweek Magazine has twice named him one of the ten most influential rabbis in America. Most importantly to Steve, he is Betsy's husband, and Aaron and Hannah's dad — and a Jew who likes to fish.</p>
+        <div class="about-credentials">
+          <div class="credential"><div class="credential-dot"></div><span>BA, Northwestern University — Writing, cum laude</span></div>
+          <div class="credential"><div class="credential-dot"></div><span>Trinity College, Oxford University</span></div>
+          <div class="credential"><div class="credential-dot"></div><span>MHL & Ordination, Hebrew Union College (1986–87)</span></div>
+          <div class="credential"><div class="credential-dot"></div><span>Newsweek Top 10 Most Influential Rabbis — twice</span></div>
+          <div class="credential"><div class="credential-dot"></div><span>Senior Rabbi, Wilshire Boulevard Temple, Los Angeles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="books-section" id="books">
+    <div class="books-inner">
+      <div class="section-header">
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span class="section-eyebrow-text">Books</span>
+          <div class="section-eyebrow-line"></div>
+        </div>
+        <h2 class="section-title">Five books. One enduring message.</h2>
+      </div>
+
+      <!-- Featured -->
+      <div class="books-featured">
+        <div class="books-featured-cover">
+          <div class="book-cover-mockup">
+            <div class="book-cover-mockup-title">For You When I Am Gone</div>
+            <div class="book-cover-mockup-sub">Twelve Essential Questions to Tell a Life Story</div>
+            <div class="book-cover-divider"></div>
+            <div class="book-cover-mockup-author">Steve Leder</div>
+          </div>
+        </div>
+        <div class="books-featured-content">
+          <span class="featured-badge">Latest Release</span>
+          <h2 class="books-featured-title">For You When I Am Gone</h2>
+          <p class="books-featured-subtitle">Twelve Essential Questions to Tell a Life Story</p>
+          <p class="books-featured-desc">What do you want your children to know about who you are? What would you want them to do — and avoid — based on your own life? These 12 essential questions are a roadmap for how we can lead a more meaningful life now, and leave a more powerful legacy later. A moving, insightful guide from one of America's most beloved rabbis.</p>
+          <div class="featured-ctas">
+            <a href="https://www.amazon.com" target="_blank" class="btn-teal">Order on Amazon</a>
+            <a href="https://www.barnesandnoble.com" target="_blank" class="btn-teal-outline">Barnes &amp; Noble</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back Catalog -->
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-card-cover book-card-cover-1">The Beauty of What Remains</div>
+          <div class="book-card-body">
+            <div class="book-card-title">The Beauty of What Remains</div>
+            <div class="book-card-sub">How Our Greatest Fear Becomes Our Greatest Gift</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-card-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-card-cover book-card-cover-2">More Beautiful Than Before</div>
+          <div class="book-card-body">
+            <div class="book-card-title">More Beautiful Than Before</div>
+            <div class="book-card-sub">How Suffering Transforms Us</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-card-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-card-cover book-card-cover-3">More Money Than God</div>
+          <div class="book-card-body">
+            <div class="book-card-title">More Money Than God</div>
+            <div class="book-card-sub">Living a Rich Life Without Losing Your Soul</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-card-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-card-cover book-card-cover-4">The Extraordinary Nature of Ordinary Things</div>
+          <div class="book-card-body">
+            <div class="book-card-title">The Extraordinary Nature of Ordinary Things</div>
+            <div class="book-card-sub"></div>
+            <a href="https://www.amazon.com" target="_blank" class="book-card-link">Order Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="press">
+    <div class="testimonials-inner">
+      <div class="testimonials-header">
+        <div class="section-eyebrow" style="justify-content:center">
+          <div class="section-eyebrow-line" style="background:rgba(255,255,255,0.3)"></div>
+          <span class="section-eyebrow-text" style="color:rgba(255,255,255,0.5)">What People Are Saying</span>
+          <div class="section-eyebrow-line" style="background:rgba(255,255,255,0.3)"></div>
+        </div>
+        <h2 class="section-title" style="color:#fff; text-align:center;">Words that stay<br>with you.</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">Rabbi Leder has a way of making us all feel better… even when tackling the difficult subject of death. I was underlining and dog-earring from the start. Life lessons on each page.</p>
+          <div class="testimonial-author">Hoda Kotb — TODAY</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">Rabbi Leder does it again with another book that looks deep into the taboo topic of death. Through reading and then answering those questions you learn about yourself, your life, and what you would like to leave behind. A must read!</p>
+          <div class="testimonial-author">Amanda Kloots</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">Rabbi Steve Leder's wise and kind voice gently guides through his life with his father as well as the lives of so many others he has helped. This warm and insightful book teaches us how to remember what really matters in loss and in life.</p>
+          <div class="testimonial-author">David Kessler — Grief Expert & Author</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA -->
+  <section class="media-section">
+    <p class="media-label">As seen in</p>
+    <div class="media-logos">
+      <div class="media-logo media-logo-serif">Forbes</div>
+      <div class="media-logo media-logo-sans">TODAY</div>
+      <div class="media-logo media-logo-sans">SPECTRUM NEWS</div>
+      <div class="media-logo media-logo-serif">The Talk</div>
+      <div class="media-logo media-logo-sans">CBS SUNDAY MORNING</div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="speaking-section" id="speaking">
+    <div class="speaking-inner">
+      <div class="speaking-left">
+        <div class="about-eyebrow">
+          <div class="about-eyebrow-line"></div>
+          <span class="about-eyebrow-text">Speaking &amp; Events</span>
+        </div>
+        <h2>An unforgettable voice<br>for any audience.</h2>
+        <p>Rabbi Leder has spoken to audiences across the country — from intimate congregations to major conferences — on the themes that define the human experience. His talks are personal, profound, and always leave people changed.</p>
+        <div class="speaking-topics">
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Grief, loss, and finding beauty in what remains</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Living with meaning and purpose</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Suffering as transformation</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Wealth, values, and the life well-lived</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Legacy, memory, and the questions that matter</div>
+        </div>
+      </div>
+      <div class="speaking-right">
+        <h3>Invite Steve to speak at your next event.</h3>
+        <p>Whether it's a conference, corporate gathering, congregation, or private event — Steve brings warmth, wisdom, and stories that resonate long after the applause fades.</p>
+        <a href="#contact" class="btn-teal" style="display:inline-block">Send a Speaking Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="about-eyebrow" style="justify-content:center">
+        <div class="about-eyebrow-line"></div>
+        <span class="about-eyebrow-text">Get in Touch</span>
+        <div class="about-eyebrow-line"></div>
+      </div>
+      <h2>Let's start a conversation.</h2>
+      <p>Whether you have a question about Steve's books, want to book him for a speaking event, or just want to share how his work has touched your life — he'd love to hear from you.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Reason for Contact</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Speaking / Event Inquiry</option>
+            <option>Media / Press Inquiry</option>
+            <option>General Question</option>
+            <option>Note to Steve</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell Steve what's on your mind..."></textarea>
+        </div>
+        <button class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Steve <span>Leder</span></div>
+          <div class="footer-tagline">"Some might say we sacrifice because we love.<br>But the deeper truth is that we love because we sacrifice."</div>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#books">Books</a>
+          <a href="#press">Press</a>
+          <a href="#speaking">Speaking</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Steve Leder. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/rabbisteveleder/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

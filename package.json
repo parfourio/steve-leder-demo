@@ -1,0 +1,11 @@
+{
+  "name": "steve-leder-demo",
+  "version": "1.0.0",
+  "description": "Steve Leder concept demo",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
